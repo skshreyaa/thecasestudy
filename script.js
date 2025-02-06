@@ -4,6 +4,15 @@ for (let i = 1; i <= 33; i++) {
 }
 let index = 0;
 
+// Start Presentation
+function startPresentation() {
+    document.getElementById("cover").style.opacity = "0";
+    setTimeout(() => {
+        document.getElementById("cover").style.display = "none";
+        document.getElementById("presentation").style.display = "flex";
+    }, 1000);
+}
+
 // Update slide
 function updateSlide() {
     let img = document.getElementById("slide");
