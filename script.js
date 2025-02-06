@@ -10,7 +10,12 @@ function updateSlide() {
     setTimeout(() => {
         img.src = slides[index];
         img.style.opacity = "1";
+        img.style.transform = "scale(1.1)"; 
+        setTimeout(() => img.style.transform = "scale(1)", 300);
     }, 300); 
+
+    // Update progress bar
+    document.getElementById("progress").style.width = ((index + 1) / slides.length) * 100 + "%";
 }
 
 function nextSlide() {
@@ -27,9 +32,18 @@ function openFullscreen() {
     document.documentElement.requestFullscreen();
 }
 
+// Toggle Light/Dark Mode
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
+
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") nextSlide();
     if (event.key === "ArrowLeft") prevSlide();
 });
 
+// Auto-slideshow (every 3 seconds)
 setInterval(nextSlide, 3000);
+
+// Initial fade-in effect
+setTimeout(() => document.getElementById("slide").style.opacity = "1", 300);
