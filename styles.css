@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-/* Reset all margins/paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Full-Screen Background */
 body {
     font-family: 'Poppins', sans-serif;
     background: black;
@@ -15,19 +13,97 @@ body {
     overflow: hidden;
 }
 
-/* Full-Screen Slide Container */
+/* ===== Cover Page Styles ===== */
+.cover-page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 1s ease-in-out;
+}
+
+.cover-image {
+    width: 250px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.2);
+    animation: float 3s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+    from { transform: translateY(-10px); }
+    to { transform: translateY(10px); }
+}
+
+.cover-title {
+    font-size: 3rem;
+    margin: 20px 0;
+    background: linear-gradient(45deg, #ff6b6b, #1e90ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cover-text {
+    font-size: 1.5rem;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+/* Crazy Start Button */
+.start-btn {
+    padding: 15px 40px;
+    font-size: 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff4757, #1e90ff);
+    color: white;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 10%, transparent 70%);
+    top: -50%;
+    left: -50%;
+    transform: scale(0);
+    transition: transform 0.3s;
+}
+
+.start-btn:hover::before {
+    transform: scale(1);
+}
+
+.start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.7);
+}
+
+/* Hide Presentation Initially */
 .slide-container {
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Make Slide Fill the Screen */
+/* Fullscreen Image */
 #slide {
     width: 100%;
     height: 100%;
