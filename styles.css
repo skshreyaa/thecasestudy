@@ -1,54 +1,73 @@
-/* Global styles */
+/* Global Styles */
 body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(120deg, #f0f0f0, #d9e4f5);
+    background: linear-gradient(135deg, #f0f0f0, #d9e4f5);
     color: #333;
     transition: background 0.5s, color 0.5s;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
 }
 
 .dark-mode {
-    background: linear-gradient(120deg, #1e1e1e, #2a2a2a);
+    background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
     color: white;
 }
 
-/* Slide container */
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Slide Container */
 .slide-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    height: 70vh;
     margin-top: 20px;
     position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-#slide {
-    width: 70%;
+.slide-image {
+    width: 80%;
     max-height: 500px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
     opacity: 0;
     animation: fadeIn 0.7s forwards;
+    object-fit: cover;
 }
 
-/* Button styles */
+/* Buttons */
 .buttons {
-    margin-top: 15px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .btn {
-    padding: 12px 20px;
+    padding: 12px 25px;
     font-size: 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     color: white;
-    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .prev { background: #ff6b6b; }
@@ -61,22 +80,24 @@ body {
     box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 
-/* Thumbnail Navigation */
+/* Thumbnails */
 .thumbnails {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 25px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .thumb {
-    width: 50px;
-    height: 35px;
-    margin: 5px;
-    border-radius: 5px;
+    width: 60px;
+    height: 40px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s, border 0.3s;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     opacity: 0.7;
+    object-fit: cover;
 }
 
 .thumb:hover {
@@ -84,8 +105,18 @@ body {
     opacity: 1;
 }
 
+.thumb.active {
+    border: 3px solid #ff6b6b;
+    opacity: 1;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
 }
