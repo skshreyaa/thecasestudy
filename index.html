@@ -7,12 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>LEVERAGING NEW-AGE DATABASES - APPLE INTELLIGENCE</h1>
-    <img id="slide" src="1.png" alt="Slide 1">
-    <br>
-    <button class="btn prev" onclick="prevSlide()">⬅ Previous</button>
-    <button class="btn next" onclick="nextSlide()">Next ➡</button>
-    <button class="btn fullscreen" onclick="openFullscreen()">🔍 Fullscreen</button>
+    <div class="container">
+        <h1>My Canva Presentation</h1>
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+        <div class="slide-container">
+            <img id="slide" src="1.png" alt="Slide 1">
+        </div>
+        <div class="buttons">
+            <button class="btn prev" onclick="prevSlide()">⬅ Prev</button>
+            <button class="btn next" onclick="nextSlide()">Next ➡</button>
+        </div>
+        <button class="btn fullscreen" onclick="openFullscreen()">🔍 Fullscreen</button>
+        <button class="btn theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    </div>
 
     <script src="script.js"></script>
 </body>
