@@ -3,20 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔥 Full-Screen Presentation 🔥</title>
+    <title>APPLE INTELLIGENCE</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="slide-container">
-        <img id="slide" src="1.png" alt="Slide 1">
+    <!-- Cover Page -->
+    <div class="cover-page" id="cover">
+        <img src="intro-otter.png" alt="Intro Image" class="cover-image">
+        <h1 class="cover-title">🚀 Welcome to My Presentation 🚀</h1>
+        <p class="cover-text">An immersive and visually stunning experience.</p>
+        <button class="btn start-btn" onclick="startPresentation()">🎬 Start Presentation</button>
     </div>
 
-    <div class="controls">
-        <button class="btn prev" onclick="prevSlide()">⬅ Prev</button>
-        <button class="btn next" onclick="nextSlide()">Next ➡</button>
-        <button class="btn fullscreen" onclick="toggleFullscreen()">🔍 Fullscreen</button>
-        <button class="btn theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+    <!-- Main Slide Container (Hidden Initially) -->
+    <div class="slide-container" id="presentation">
+        <img id="slide" src="1.png" alt="Slide 1">
+        <div class="controls">
+            <button class="btn prev" onclick="prevSlide()">⬅ Prev</button>
+            <button class="btn next" onclick="nextSlide()">Next ➡</button>
+            <button class="btn fullscreen" onclick="toggleFullscreen()">🔍 Fullscreen</button>
+            <button class="btn theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
