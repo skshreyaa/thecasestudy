@@ -4,17 +4,17 @@ for (let i = 1; i <= 33; i++) {
 }
 let index = 0;
 
-// Update slide function
+// Update Slide Function
 function updateSlide() {
     let img = document.getElementById("slide");
-    img.style.opacity = "0"; 
+    img.style.opacity = "0";
 
     setTimeout(() => {
         img.src = slides[index];
         img.style.opacity = "1";
         img.style.transform = "scale(1.05)";
         setTimeout(() => img.style.transform = "scale(1)", 300);
-    }, 300); 
+    }, 300);
 
     highlightThumbnail();
 }
@@ -32,12 +32,18 @@ function prevSlide() {
 
 // Fullscreen Mode
 function openFullscreen() {
-    document.documentElement.requestFullscreen();
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
 }
 
 // Dark Mode Toggle
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
+    const themeBtn = document.querySelector(".theme-toggle");
+    themeBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
 }
 
 // Thumbnail Navigation
@@ -57,7 +63,7 @@ function loadThumbnails() {
 
 function highlightThumbnail() {
     document.querySelectorAll(".thumb").forEach((t, i) => {
-        t.style.border = i === index ? "3px solid #ff6b6b" : "none";
+        t.classList.toggle("active", i === index);
     });
 }
 
